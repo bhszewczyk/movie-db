@@ -5,11 +5,13 @@ const API_URL =
 const IMG_PATH = 'https://image.tmdb.org/t/p/w1280';
 const SEARCH_API =
 	'https://api.themoviedb.org/3/search/movie?api_key=ce0958d9c881dd6edfe3e889e1afe933&query="';
+const API_KEY = 'ce0958d9c881dd6edfe3e889e1afe933&';
 
 // get elements from the DOM
 const form = document.getElementById('search-form');
 const search = document.getElementById('search');
 const movieCardsContainer = document.getElementById('main');
+const movieCards = document.querySelectorAll('.movie');
 
 // Get initial movies
 getMovies(API_URL);
@@ -93,3 +95,56 @@ form.addEventListener('submit', (e) => {
 		window.location.reload();
 	}
 });
+
+main.addEventListener('click', (e) => {
+	const closestDiv = e.target.closest('div.movie');
+
+	if (!closestDiv) {
+		return;
+	}
+
+	main.innerHTML = '';
+
+	const title = closestDiv.children[1].children[0].innerText;
+	const query = title.toLowerCase().split(' ').join('+');
+
+	getMovieDetails(query);
+});
+
+async function getMovieDetails(query) {
+	const response = await fetch(`${SEARCH_API}&query=${query}`);
+	const movie = await response.json();
+
+	const movieId = movie.results[0].id;
+
+	const movieDetailsRequest = await fetch(
+		`https://api.themoviedb.org/3/movie/${movieId}?api_key=${API_KEY}`
+	);
+
+	const movieDetailsRes = await movieDetailsRequest.json();
+
+	console.log(movieDetailsRes);
+
+	const {
+		genres,
+		original_title: orgTitle,
+		release_date: releaseDate,
+		runtime: duration,
+		vote_average: rating,
+		vote_count: votes,
+		poster_path: imgPath,
+	} = movieDetailsRes;
+
+	const movieDetails = {
+		orgTitle,
+		releaseDate,
+		duration,
+		genres,
+		imgPath,
+		rating,
+		votes,
+	};
+
+	const templateMovieDetails = `
+	`;
+}
