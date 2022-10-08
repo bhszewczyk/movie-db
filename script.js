@@ -146,5 +146,55 @@ async function getMovieDetails(query) {
 	};
 
 	const templateMovieDetails = `
+	<div class="movie-container">
+		<img
+					src="${IMG_PATH + movieDetails.imgPath}"
+					alt="${movieDetails.orgTitle} poster"
+					class="poster"
+		/>
+		<h1 class="title">${movieDetails.orgTitle}</h1>
+		<div class="movie-details">
+			<div class="movie-detail">
+				<span class="movie-detail--label">Release date:</span>
+				<span class="movie-detail--data">${movieDetails.releaseDate}</span>
+			</div>
+			<div class="movie-detail">
+				<span class="movie-detail--label">Duration:</span>
+				<span class="movie-detail--data">${movieDetails.duration} mins</span>
+			</div>
+			<div class="movie-detail">
+				<span class="movie-detail--label">Genres:</span>
+				<span class="movie-detail--data movie-detail--genre">
+					${getGenresButtonsFunc(movieDetails.genres)}
+				</span>
+				
+			</div>
+		</div>
+		<div class="movie-rating">
+			9.8 out of 123984 votes
+		</div>
+	</div>
 	`;
+
+	const movieCardEl = document.createElement('div');
+
+	movieCardEl.innerHTML = templateMovieDetails;
+
+	main.append(movieCardEl);
+}
+
+function getGenresButtonsFunc(genresObj) {
+	console.log(genresObj);
+
+	for (const genre in genresObj) {
+		const genreEl = document.createElement('button');
+
+		genreEl.classList.add('btn-genre');
+
+		genreEl.innerText = genresObj[genre].name;
+
+		console.log(genreEl);
+
+		//???????
+	}
 }

@@ -13,7 +13,37 @@
 				<input type="text" id="search" class="search" placeholder="Search" />
 			</form>
 		</header>
-		<main id="main"></main>
+		<main id="main">
+			<div class="movie-container">
+				<img
+					src="https://images.unsplash.com/photo-1585951237318-9ea5e175b891?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
+					alt=""
+					class="poster"
+				/>
+				<h1 class="title">Some title goes here</h1>
+				<div class="movie-details">
+					<div class="movie-detail">
+						<span class="movie-detail--label">Original title:</span>
+						<span class="movie-detail--data"></span>
+					</div>
+					<div class="movie-detail">
+						<span class="movie-detail--label">Release date:</span>
+						<span class="movie-detail--data"></span>
+					</div>
+					<div class="movie-detail">
+						<span class="movie-detail--label">Duration:</span>
+						<span class="movie-detail--data"></span>
+					</div>
+					<div class="movie-detail">
+						<span class="movie-detail--label">Genres:</span>
+						<span class="movie-detail--data movie-detail--genre">
+							<button class="btn-genre"></button>
+						</span>
+					</div>
+				</div>
+				<div class="movie-rating">9.8 out of 123984 votes</div>
+			</div>
+		</main>
 		<script src="script.js"></script>
 	</body>
 </html>
