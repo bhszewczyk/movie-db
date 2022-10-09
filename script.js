@@ -185,6 +185,7 @@ async function getMovieDetails(query) {
 
 function getGenresButtonsFunc(genresObj) {
 	console.log(genresObj);
+	let genresHtml = '';
 
 	for (const genre in genresObj) {
 		const genreEl = document.createElement('button');
@@ -195,6 +196,8 @@ function getGenresButtonsFunc(genresObj) {
 
 		console.log(genreEl);
 
-		//???????
+		genresHtml += genreEl.outerHTML;
 	}
+
+	return genresHtml;
 }
