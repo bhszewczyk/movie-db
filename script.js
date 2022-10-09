@@ -162,9 +162,9 @@ async function getMovieDetails(query) {
 				<span class="movie-detail--label">Duration:</span>
 				<span class="movie-detail--data">${movieDetails.duration} mins</span>
 			</div>
-			<div class="movie-detail">
+			<div class="movie-detail movie-detail--genre">
 				<span class="movie-detail--label">Genres:</span>
-				<span class="movie-detail--data movie-detail--genre">
+				<span class="movie-detail--data">
 					${getGenresButtonsFunc(movieDetails.genres)}
 				</span>
 				

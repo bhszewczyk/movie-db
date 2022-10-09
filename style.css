@@ -4,7 +4,7 @@
 	--primary-color: #3c1518;
 	--secondary-color: #5a110c;
 	--tertiaty-color: #d58936;
-	--font-color-bright: #f2f3ae;
+	--font-color-bright: #f5dfbb;
 }
 
 * {
@@ -116,4 +116,66 @@ main {
 
 .movie:hover .overview {
 	transform: translateY(0);
+}
+
+.movie-container {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: center;
+	color: var(--font-color-bright);
+	background-color: var(--secondary-color);
+	padding: 0 2.4rem;
+	position: relative;
+}
+
+.movie-container img {
+	width: 600px;
+}
+
+.title {
+	font-size: 4rem;
+	padding: 1.2rem 0;
+	font-style: italic;
+	margin-bottom: 1.2rem;
+	align-self: center;
+}
+
+.movie-detail {
+	font-size: 2.4rem;
+	letter-spacing: 1.2px;
+	font-weight: 200;
+	margin-bottom: 1.2rem;
+}
+
+.btn-genre {
+	border: none;
+	padding: 0.8rem 1.6rem;
+	border-radius: 15px;
+	font-family: inherit;
+	font-size: 1.8rem;
+	background-color: var(--primary-color);
+	color: var(--font-color-bright);
+	transition: background-color 0.3s linear;
+	margin: 0 1.2rem;
+}
+
+.movie-detail--genre {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.btn-genre:hover {
+	background-color: var(--tertiaty-color);
+	margin: 1.2rem;
+}
+
+.movie-rating {
+	position: absolute;
+	top: 2rem;
+	right: 4rem;
+	background-color: rgba(60, 21, 24, 0.6);
+	padding: 0.8rem 1.6rem;
+	border-radius: 5px;
 }
